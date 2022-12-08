@@ -27,7 +27,7 @@ Route::get('/ama22ing', [AmazingControllers::class, 'index'])->name('ama22ing');
 Route::post('auth/login', [AuthControllers::class, 'login'])->name('auth');
 Route::get('auth/logout', [AuthControllers::class, 'actionlogout'])->name('logout');
 Route::get('/register', [AuthControllers::class, 'register'])-> name('register');
-Route::post('/register', [AuthControllers::class, 'registerStore'])-> name('registerPost');
+Route::post('/register/user', [AuthControllers::class, 'registerStore'])-> name('registerPost');
 
 
 

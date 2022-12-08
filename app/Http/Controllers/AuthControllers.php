@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Auth\Events\Failed;
 use Illuminate\Http\Request;
 use App\Models\UsersModel;
 use App\Models\EventsModel;
 use Illuminate\Support\Facades\Hash;
+use TheSeer\Tokenizer\Exception;
 use Validator;
 use Session;
 use Carbon\Carbon;
@@ -71,15 +73,43 @@ class AuthControllers extends Controller
 
     public function registerStore(Request $request)
     {
-        $data = $request->validate([
-            'person_name' => 'required||min:5|max:100',
-            'person_phone' => 'required|unique',
-            'person_email' => 'required|email|unique',
-            'person_password' => 'required|min:4'
+        
+        $validator = Validator::make($request->all(),[
+            'name' => 'required|min:5|max:100',
+            'phone' => 'required',
+            'email' => 'required',
+            'password' => 'required|min:4'
         ]);
+    
+        if ($validator->fails()){
+            return redirect('/register')->with('status',$validator->errors()->first());
+        }
+
+        $user = UsersModel::where('person_email', $request->email)->where('person_role', 'admin')->first();
+
+        if ($user) {
+            return redirect('/register')->with('status',"Akun email sudah terdaftar!");
+        }
+
+        try{
+            $pwd = Hash::make($request->password);
+            $data = array(
+                'person_name'            => $request->name,
+                'person_password'        => $pwd,
+                'person_email'           => $request->email,
+                'person_phone'           => $request->phone,
+                'person_register_by'     => 1,
+                'person_role'            => 'admin',
+                'person_status'           => "aktif"
+            );
+            UsersModel::create($data);
+            return redirect()->route('login');
+        }catch(Exception $e){
+            //dd($e);
+            return redirect('/register')->with('status',"Proses registrasi gagal!");
+        }
         
         
-        UsersModel::create ($data);
-        return redirect()->route('login');
+
     }
 }

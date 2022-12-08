@@ -15,7 +15,7 @@
     <div class="row m-0 h-100">
         <div class="col p-0 bg-custom d-flex justify-content-center align-items-center flex-column w-100">
             <form class="w-50" 
-            action="" method="POST">
+            action="{{url('register/user')}}" method="POST">
                 <div class="text-center">
                 <p class="h1">Registrasi</p>
                 </div>
@@ -34,7 +34,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Number Phone</label>
-                    <input type="number" class="form-control" name="telepon"
+                    <input type="number" class="form-control" name="phone"
                         placeholder="Number Phone" required>
                 </div>
                 <div class="mb-3">
@@ -42,9 +42,9 @@
                     <input type="password" class="form-control" name="password"
                         placeholder="Password" required>
                 </div>
-                @if (Session::has('fail'))
+                @if (Session('status'))
                     <div class="alert alert-danger mt-2">
-                        {{ Session::get('fail') }}
+                        {{ Session('status') }}
                     </div>
                 @endif
                 <script>
