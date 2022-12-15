@@ -6,7 +6,9 @@ use Illuminate\Auth\Events\Failed;
 use Illuminate\Http\Request;
 use App\Models\UsersModel;
 use App\Models\EventsModel;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use PhpOffice\PhpSpreadsheet\Calculation\LookupRef\Unique;
 use TheSeer\Tokenizer\Exception;
 use Validator;
 use Session;
@@ -14,8 +16,10 @@ use Carbon\Carbon;
 
 class AuthControllers extends Controller
 {
+    
     public function index(Request $request)
     {
+        
         if ($request->session()->has('sesi')) {
             //$data = EventsModel::whereDate('acara_mulai', '<=', Carbon::today()->toDateString())->whereDate('acara_selesai', '>=', Carbon::today()->toDateString())->get();
             $data = EventsModel::where('acara_status', 'aktif')->get();
@@ -76,8 +80,8 @@ class AuthControllers extends Controller
         
         $validator = Validator::make($request->all(),[
             'name' => 'required|min:5|max:100',
-            'phone' => 'required',
-            'email' => 'required',
+            'phone' => 'required|min:11|unique:tbl_fd_user,person_phone',
+            'email' => 'required|email',
             'password' => 'required|min:4'
         ]);
     
@@ -100,10 +104,11 @@ class AuthControllers extends Controller
                 'person_phone'           => $request->phone,
                 'person_register_by'     => 1,
                 'person_role'            => 'admin',
-                'person_status'           => "aktif"
+                'subscribed'              => 'free',
+                'person_status'          => "aktif",
             );
             UsersModel::create($data);
-            return redirect()->route('login');
+            return redirect()->route('login')->with('success', "Registrasi Sukses! Silahkan Login");
         }catch(Exception $e){
             //dd($e);
             return redirect('/register')->with('status',"Proses registrasi gagal!");

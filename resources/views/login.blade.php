@@ -16,6 +16,13 @@
         <div class="col p-0 text-center d-flex justify-content-center align-items-center display-none">
             <img src="{{ asset('img/web/banner_login_01.png') }}" class="w-100">
         </div>
+        @if (session()->has('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ session('success')}}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                    </button>
+                </div>
+                @endif
         <div class="col p-0 bg-custom d-flex justify-content-center align-items-center flex-column w-100">
             <form class="w-50" id="loginSubmit" action="{{ url('auth/login') }}" method="POST">
                 <div class="text-center">
@@ -56,21 +63,20 @@
                     }
                 </script>
                 <div class="mb-3">
-                <button class="btn w-100 btn-custom" id="submit" onclick="loading()" type="submit">
-                    <span class="spinner-border spinner-border-sm d-none loader" role="status"
-                        aria-hidden="true"></span>
-                    <span class="btn-text">Login</span>
-                </button>
-                </div>
-                <div class="mb-3">
-                    <div class="text-center">
-                    <small class="text-muted">Atau</small>
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <button class="btn w-100 btn-custom" type="button">
-                        <a href="/register" class="btn-text">Register</a>
+                    <button class="btn w-100 btn-custom" id="submit" onclick="loading()" type="submit">
+                        <span class="spinner-border spinner-border-sm d-none loader" role="status"
+                            aria-hidden="true"></span>
+                        <span class="btn-text">Login</span>
                     </button>
+                </div>
+                <div class="mb-3">
+                    <button class="btn w-100" disabled>
+                        <span class="btn-text center">Atau</span>
+                    </button>
+                </div>
+
+                <div class="mb-3">
+                    <a class="btn w-100 btn-custom" type="button" href="{{ route('register') }}" class="btn-text">Register</a>                    
                 </div>
             </form>
         </div>

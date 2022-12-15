@@ -365,4 +365,9 @@ class EventsControllers extends Controller
     {
         return Excel::download(new ExportKodeRefferal, 'Invitation Kode.xlsx');
     }
+
+    public function upgrade()
+    {
+        return view('upgrade');
+    }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PayControllers;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthControllers;
 use App\Http\Controllers\EventsControllers;
@@ -29,8 +30,14 @@ Route::get('auth/logout', [AuthControllers::class, 'actionlogout'])->name('logou
 Route::get('/register', [AuthControllers::class, 'register'])-> name('register');
 Route::post('/register/user', [AuthControllers::class, 'registerStore'])-> name('registerPost');
 
+Route::get('pay', [PayControllers::class, 'pay'])->name('pembayaran.member');
+Route::get('payGold', [PayControllers::class, 'paygold'])->name('pembayaran.memberGold');
+Route::post('addpay', [PayControllers::class, 'addpay'])->name('update.addpay');
+Route::get('listpembayaran', [PayControllers::class, 'listpembayaran'])->name('admin.listpembayaran');
+Route::post('updatesubcribed/{id}', [PayControllers::class, 'updatesubcribed'])->name('update.subcribed');
+Route::get('congratulation', [PayControllers::class, 'congratulation'])->name('upgrade.congratulation');
 
-
+Route::get('upgrade', [EventsControllers::class, 'upgrade'])->name('register.upgrade');
 Route::get('events/list/{tipe?}', [EventsControllers::class, 'index'])->name('eventlist');
 Route::post('events/create', [EventsControllers::class, 'create'])->name('eventcreate');
 Route::post('events/update', [EventsControllers::class, 'update'])->name('eventupdate');
