@@ -85,6 +85,14 @@
                                     <span class="nav-label mininav-content ms-1">Daftar Pemenang Undian</span>
                                 </a>
                             </li>
+                            @if(session('sesi')[0]['person_role']!='admin')
+                            <li class="nav-item">
+                                <a href="{{url('listpembayaran')}}" class="nav-link mininav-toggle"><i
+                                        class="la la-user fs-5 me-2 mtnk1r"></i>
+                                    <span class="nav-label mininav-content ms-1">List Pembayaran</span>
+                                </a>
+                            </li>
+                            @endif
                         </ul>
                     </div>
                 </div>

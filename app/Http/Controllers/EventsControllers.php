@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PayModel;
 use Illuminate\Http\Request;
 use App\Models\EventsModel;
 use App\Models\AgendaModel;
@@ -26,6 +27,11 @@ class EventsControllers extends Controller
 
     public function index(Request $request, $tipe = null)
     {
+
+        $session_id = $request->session()->get('sesi')[0]->person_id;
+        $status = PayModel::where('person_id', $session_id)->first();
+        $datanya = $status->status;
+
         //var_dump($tipe);
         //$data = EventsModel::paginate(4);
         if ($tipe == "cs") {

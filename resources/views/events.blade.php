@@ -14,13 +14,22 @@
 
         </div>
         <div class="flex-grow-1 d-flex flex-wrap justify-content-end align-items-center gap-3">
+                @if ($datanya == 'waiting')
+                <button type="text-center" class="btn btn-primary btn-sm hastack gap-3">
+                    Waiting
+                </button>
+                @elseif ($datanya !== 'free' && $datanya !== 'waiting')
+                <a type="button" class="btn btn-danger btn-sm hastack gap-3" href= "">
+                    Unsubsribe
+                </a>
+                @endif
                 <a type="button" class="btn btn-bg-purple btn-sm hstack gap-2"
                     href="{{ route('register.upgrade') }}">
                     Upgrade
                     <i class="bi bi-award text-warning"></i>
                 </a>
-            <button type="button" class="btn btn-bg-purple btn-sm hstack gap-2" data-bs-toggle="modal"
-                data-bs-target="#eventsModal">
+                <button type="button" class="btn btn-bg-purple btn-sm hstack gap-2" data-bs-toggle="modal"
+                    data-bs-target="#eventsModal">
                 <i class="la la-plus"></i>
                 Create Event
             </button>

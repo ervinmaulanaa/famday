@@ -62,18 +62,17 @@
                         $(".btn .btn-text").html("");
                     }
                 </script>
-                <div class="mb-3">
+                
                     <button class="btn w-100 btn-custom" id="submit" onclick="loading()" type="submit">
                         <span class="spinner-border spinner-border-sm d-none loader" role="status"
                             aria-hidden="true"></span>
                         <span class="btn-text">Login</span>
                     </button>
-                </div>
-                <div class="mb-3">
+                
+                
                     <button class="btn w-100" disabled>
-                        <span class="btn-text center">Atau</span>
+                        <span class="btn-text center">Or</span>
                     </button>
-                </div>
 
                 <div class="mb-3">
                     <a class="btn w-100 btn-custom" type="button" href="{{ route('register') }}" class="btn-text">Register</a>                    

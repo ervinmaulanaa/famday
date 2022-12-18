@@ -60,8 +60,8 @@
 
                                         <p class="text-muted text-center fs-12 mb-1 px-2" style="padding: 2px"> 1 Bulan
                                         </p>
-                                        <h6 class="text-black text-center fs-12 mb-1 px-2 fw-bold" style="padding: 2px">
-                                            Rp25k/month</h6>
+                                        <h7 class="text-black text-center fs-12 mb-1 px-2 fw-bold" style="padding: 2px">
+                                            Rp25k/month</h7>
                                         <p class="text-muted text-center fs-12 mb-1 px-2" style="padding: 2px">Total
                                         </p>
                                         <h5 class="text-center fs-12 mb-1 px-2 text-primary fw-bold"
@@ -84,8 +84,8 @@
 
                                         <p class="text-muted text-center fs-12 mb-1 px-2" style="padding: 2px"> 3 Bulan
                                         </p>
-                                        <h6 class="text-black text-center fs-12 mb-1 px-2 fw-bold" style="padding: 2px">
-                                            Rp75k/month</h6>
+                                        <h7 class="text-black text-center fs-12 mb-1 px-2 fw-bold" style="padding: 2px">
+                                            Rp75k/month</h7>
                                         <p class="text-muted text-center fs-12 mb-1 px-2" style="padding: 2px">Total
                                         </p>
                                         <h5 class="text-center fs-12 mb-1 px-2 text-primary fw-bold"
@@ -109,8 +109,8 @@
 
                                         <p class="text-muted text-center fs-12 mb-1 px-2" style="padding: 2px "> 6 Bulan
                                         </p>
-                                        <h6 class="text-black text-center fs-12 mb-1 px-2 fw-bold" style="padding: 2px">
-                                            Rp150k/month</h6>
+                                        <h7 class="text-black text-center fs-12 mb-1 px-2 fw-bold" style="padding: 2px">
+                                            Rp150k/month</h7>
                                         <p class="text-muted text-center fs-12 mb-1 px-2" style="padding: 2px">Total
                                         </p>
                                         <h5 class="text-center fs-12 mb-1 px-2 text-primary fw-bold"

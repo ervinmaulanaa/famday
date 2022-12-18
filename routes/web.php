@@ -36,6 +36,7 @@ Route::post('addpay', [PayControllers::class, 'addpay'])->name('update.addpay');
 Route::get('listpembayaran', [PayControllers::class, 'listpembayaran'])->name('admin.listpembayaran');
 Route::post('updatesubcribed/{id}', [PayControllers::class, 'updatesubcribed'])->name('update.subcribed');
 Route::get('congratulation', [PayControllers::class, 'congratulation'])->name('upgrade.congratulation');
+Route::get('listpembayaran', [PayControllers::class,'listpembayaran'])->name('superuser.listpembayaran');
 
 Route::get('upgrade', [EventsControllers::class, 'upgrade'])->name('register.upgrade');
 Route::get('events/list/{tipe?}', [EventsControllers::class, 'index'])->name('eventlist');

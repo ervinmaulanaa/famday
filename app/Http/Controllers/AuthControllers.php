@@ -48,7 +48,7 @@ class AuthControllers extends Controller
             return redirect('/')->withFail($validator->errors()->first());
         }
 
-        $user = UsersModel::where('person_email', $request->email)->where('person_role', 'admin')->first();
+        $user = UsersModel::where('person_email', $request->email)->first();
         
         if ($user) {
             if (Hash::check($request->password, $user->person_password)) {

@@ -20,7 +20,7 @@
     <form>
         <a type="button" onclick="history.go(-1)" style="margin-left: 20px"><i class="bi bi-arrow-bar-left"></i></a>
     </form>
-    <div class="container h-100 " style="margin-top: 100px">
+    <div class="container h-100 " style="margin-top: 50px">
         <div class="row h-200 justify-content-center align-items-center">
             <div class="col-sm-6 col-md-4 col-xl-3 mb-3 d-flex align-items-stretch">
                 <div class="card data-events " id="3" idx="0">
