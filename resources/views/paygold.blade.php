@@ -134,8 +134,8 @@
                     <input type="number" name="no_rekening" class="form-control"
                         placeholder="Masukan No Rekening Anda">
                     <input type="hidden" name="typesubscribe" value="Gold">
-                    <input type="hidden" name="durasi" value="2 Bulan">
-                    <input type="hidden" name="total_bayar" value="69000">
+                    <input type="hidden" id="durasi" name="durasi" value="2 Bulan">
+                    <input type="hidden" id="total" name="total_bayar" value="69000">
                     <input type="hidden" name="status" value="waiting"><br>
                     <br>
                     <img src="{{ URL::asset('img/image3.png') }}" alt="" style="width: 40px">

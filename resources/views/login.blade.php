@@ -70,9 +70,9 @@
                     </button>
                 
                 
-                    <button class="btn w-100" disabled>
-                        <span class="btn-text center">Or</span>
-                    </button>
+                    <a class="btn w-100 " disabled>
+                        <span class="text-black-50">Or</span>
+                    </a>
 
                 <div class="mb-3">
                     <a class="btn w-100 btn-custom" type="button" href="{{ route('register') }}" class="btn-text">Register</a>                    

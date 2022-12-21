@@ -54,7 +54,7 @@ class AuthControllers extends Controller
             if (Hash::check($request->password, $user->person_password)) {
                 $time = date('Y-m-d H:i:s');
                 $request->session()->push("sesi", $user);
-                return redirect('/');
+                return redirect('/')->with('success', "Login Berhasil");
             } else {
                 return redirect('/')->withFail("Password tidak sesuai!");
             }
@@ -89,7 +89,7 @@ class AuthControllers extends Controller
             return redirect('/register')->with('status',$validator->errors()->first());
         }
 
-        $user = UsersModel::where('person_email', $request->email)->where('person_role', 'admin')->first();
+        $user = UsersModel::where('person_email', $request->email)->where('person_role', 'admin',)->first();
 
         if ($user) {
             return redirect('/register')->with('status',"Akun email sudah terdaftar!");
@@ -104,7 +104,7 @@ class AuthControllers extends Controller
                 'person_phone'           => $request->phone,
                 'person_register_by'     => 1,
                 'person_role'            => 'admin',
-                'subscribed'              => 'free',
+                'subscribed'             => 'free',
                 'person_status'          => "aktif",
             );
             UsersModel::create($data);

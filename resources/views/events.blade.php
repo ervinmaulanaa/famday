@@ -18,9 +18,9 @@
                 <button type="text-center" class="btn btn-primary btn-sm hastack gap-3">
                     Waiting
                 </button>
-                @elseif ($datanya !== 'free' && $datanya !== 'waiting')
-                <a type="button" class="btn btn-danger btn-sm hastack gap-3" href= "">
-                    Unsubsribe
+                @elseif ($datanya !== 'free' && $datanya !== 'waiting' && $datanya !== null)
+                <a type="button" class="btn btn-danger btn-sm hastack gap-3" href= "{{ route('unsubscribed') }}">
+                    Unsubscribe
                 </a>
                 @endif
                 <a type="button" class="btn btn-bg-purple btn-sm hstack gap-2"

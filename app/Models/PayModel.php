@@ -15,6 +15,6 @@ class PayModel extends Model
     protected $primaryKey  = 'pay_id';
 
     protected $fillable = [
-        'no_pembelian','no_rekening','person_id','typesubscribe','durasi','total_bayar','status','path'
+        'no_pembelian','no_rekening','id_person','typesubscribe','durasi','total_bayar','status','path'
     ];
 }

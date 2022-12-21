@@ -29,8 +29,12 @@ class EventsControllers extends Controller
     {
 
         $session_id = $request->session()->get('sesi')[0]->person_id;
-        $status = PayModel::where('person_id', $session_id)->first();
-        $datanya = $status->status;
+        $status = PayModel::where('id_person', $session_id)->first();
+        if ($status) {
+            $datanya = $status->status;
+        }else {
+            $datanya = null;
+        }
 
         //var_dump($tipe);
         //$data = EventsModel::paginate(4);
@@ -42,7 +46,7 @@ class EventsControllers extends Controller
             $data = EventsModel::whereDate('acara_mulai', '<=', Carbon::today()->toDateString())->whereDate('acara_selesai', '>=', Carbon::today()->toDateString())->paginate(4);
         }
         $tipe = $tipe;
-        return view('events', compact('data', 'tipe'));
+        return view('events', compact('data', 'tipe', 'datanya'));
     }
 
     public function manageEvents(Request $request, $id, $tipe = null, $user = null)
